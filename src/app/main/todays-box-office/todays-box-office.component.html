@@ -1,0 +1,15 @@
+<div>
+    <div class="left">
+        <app-ranking [rankingList]="rankingList"></app-ranking>
+    </div>
+
+    <div class="left">
+        <app-main-poster [movie]="mainPoster"></app-main-poster>
+    </div>
+
+    <div class="left">
+        <div *ngFor="let subPoster of subPosterList" class="left">
+            <app-sub-poster [movie]="subPoster"></app-sub-poster>
+        </div>
+    </div>
+</div>

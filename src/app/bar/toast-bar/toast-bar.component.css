@@ -1,0 +1,30 @@
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f83938;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 60px;
+    z-index: 100;
+}
+.left {
+    float: left;
+    padding: 22px 0;
+    color: #121218;
+    font-size: 16px;
+    line-height: 100%;
+}
+.right {
+    display: inline-block;
+    float: right;
+    margin: 13px 0;
+    margin-left: 8px;
+    padding: 10px 17px;
+    background: black;
+    color: white;
+    line-height: 100%;
+    font-size: 14px;
+    font-weight: 400;
+}

@@ -1,0 +1,14 @@
+<a>박스오피스</a>
+|
+<a>추천영화</a>
+|
+<a>평가늘리기</a>
+
+<div>
+  <input type="text" [(ngModel)]="searchKeyword" (keyup.enter)="_doSearch()"/>
+</div>
+
+<div>
+  <span>{{ userName }}</span>
+  <span><img [src]="userProfilePicture"/></span>
+</div>
