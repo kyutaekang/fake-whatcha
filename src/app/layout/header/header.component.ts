@@ -42,11 +42,14 @@ export class HeaderComponent implements OnInit {
           email: data.auth.email
         };
         this.userInfoAction.login(userInfo);
-        
       }
       else {
         this.isLogin = false;
         this.userName = undefined;
+        
+        let userInfo = null;
+        this.userInfoAction.login(userInfo);
+
       }
     });
   }
