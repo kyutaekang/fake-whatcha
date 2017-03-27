@@ -1,5 +1,9 @@
+import { UserInfo } from './../../common/models/user-info.model';
 import { Component, OnInit } from '@angular/core';
 import { MovieIF } from './movie.interface';
+
+import { Store } from '@ngrx/store';
+import { AppStore } from '../../common/app-store';
 
 @Component({
   selector: 'app-todays-box-office',
@@ -8,11 +12,13 @@ import { MovieIF } from './movie.interface';
 })
 export class TodaysBoxOfficeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userInfoStore: Store<AppStore>) { }
 
   rankingList: Array<MovieIF> = [];
   mainPoster: MovieIF;
   subPosterList: Array<MovieIF> = [];
+
+  userInfo: UserInfo;
 
   ngOnInit() {
     this.rankingList = [
@@ -28,6 +34,10 @@ export class TodaysBoxOfficeComponent implements OnInit {
 
     this.mainPoster = this.rankingList[0];
     this.subPosterList = this.rankingList.slice(1, this.rankingList.length-1);
+
+    this.userInfoStore.subscribe((data: AppStore) => {
+      this.userInfo = data.userInfo;
+    });
   }
 
 }

@@ -1,14 +1,24 @@
+import { UserInfo } from './../../common/models/user-info.model';
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
+
+import { Store } from '@ngrx/store';
+import { AppStore } from '../../common/app-store';
+import { UserInfoAction } from './../../common/actions/user-info.action';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [UserInfoAction]
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private angularFire: AngularFire) {
+  constructor(private angularFire: AngularFire,
+    private userInfoStore: Store<AppStore>,
+    private userInfoAction: UserInfoAction
+  ) {
+    
   }
 
   isProcessed: boolean = false;
@@ -25,6 +35,14 @@ export class HeaderComponent implements OnInit {
       if(data && data.uid) {
         this.isLogin = true;
         this.userName = data.auth.displayName;
+
+        let userInfo: UserInfo = {
+          id: data.uid,
+          name: data.auth.displayName,
+          email: data.auth.email
+        }
+        this.userInfoAction.login(userInfo);
+        
       }
       else {
         this.isLogin = false;

@@ -1,3 +1,4 @@
+import { userInfoReducer } from './common/reducers/user-info.reducer';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +12,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { ToastBarComponent } from './bar/toast-bar/toast-bar.component';
 
 import { AppComponent } from './app.component';
+import { provideStore } from "@ngrx/store";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,11 @@ import { AppComponent } from './app.component';
     MainModule,
     AngularFireModule.initializeApp(firebaseConfig),
   ],
-  providers: [],
+  providers: [
+    provideStore({
+      userInfoReducer
+    })
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
