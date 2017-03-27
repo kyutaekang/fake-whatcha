@@ -30,7 +30,7 @@ import { provideStore } from "@ngrx/store";
   ],
   providers: [
     provideStore({
-      userInfoReducer
+      userInfo: userInfoReducer
     })
   ],
   bootstrap: [AppComponent]

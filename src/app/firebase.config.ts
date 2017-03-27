@@ -1,7 +1,7 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyCJlVUWj-hlWIrS9l1eNOi4nkd_UpwTqcs",
-    authDomain: "bookmarks-e2041.firebaseapp.com",
-    databaseURL: "https://bookmarks-e2041.firebaseio.com",
-    storageBucket: "bookmarks-e2041.appspot.com",
-    messagingSenderId: "1034416022438"
+    apiKey: "AIzaSyB-iVCOEUQVHBcYWnuh2ke4COj6aisib3I",
+    authDomain: "travelhow-4286d.firebaseapp.com",
+    databaseURL: "https://travelhow-4286d.firebaseio.com",
+    storageBucket: "travelhow-4286d.appspot.com",
+    messagingSenderId: "1005443062817"
 }

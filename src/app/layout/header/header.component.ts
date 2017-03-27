@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
           id: data.uid,
           name: data.auth.displayName,
           email: data.auth.email
-        }
+        };
         this.userInfoAction.login(userInfo);
         
       }

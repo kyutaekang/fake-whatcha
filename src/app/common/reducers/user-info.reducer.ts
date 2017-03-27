@@ -8,22 +8,24 @@ import {
   UPDATE_USER_EMAIL
 } from './../app-action';
 
-export const userInfoReducer: any = (state: UserInfo, action: Action) => {
+export function userInfoReducer(state, action) {
+
+  state = Object.assign({}, action.payload);
 
   switch(action.type) {
     case LOG_IN:
-      return Object.assign(state);
+      return Object.assign({}, state);
 
     case LOG_OUT:
-      return Object.assign(state);
+      return Object.assign({}, state);
 
     case UPDATE_USER_NAME:
       state.name = action.payload;
-      return Object.assign(state);
+      return Object.assign({}, state);
 
     case UPDATE_USER_EMAIL:
         state.email = action.payload;
-        return Object.assign(state);
+        return Object.assign({}, state);
 
     default:
       return state;
