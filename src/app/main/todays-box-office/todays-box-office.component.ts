@@ -4,6 +4,7 @@ import { MovieIF } from './movie.interface';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../../common/app-store';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-todays-box-office',
@@ -35,9 +36,15 @@ export class TodaysBoxOfficeComponent implements OnInit {
     this.mainPoster = this.rankingList[0];
     this.subPosterList = this.rankingList.slice(1, this.rankingList.length-1);
 
-    this.userInfoStore.subscribe((data: AppStore) => {
+    this.userInfoStore$ = this.userInfoStore.subscribe((data: AppStore) => {
       this.userInfo = data.userInfo;
     });
+  }
+
+  userInfoStore$: Subscription;
+
+  ngOnDestroy(): any {
+    this.userInfoStore$.unsubscribe();
   }
 
 }
