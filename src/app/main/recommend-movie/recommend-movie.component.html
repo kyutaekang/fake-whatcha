@@ -1,3 +1,20 @@
 <p>
   recommend-movie works!
 </p>
+
+
+<div>
+  <h1>create movie data</h1>
+  <input type="text" #input/>
+  <a (click)="saveMovieName(input.value)">save</a>
+</div>
+<div>
+  <h1>movie list</h1>
+  <ul>
+    <li *ngFor="let movie of movieList$ | async">
+      <input type="text" [value]="movie.movieName" #input2/>
+      <a (click)="updateMovieName(movie.$key, input2.value)">update</a>
+      <a (click)="deleteMovieName(movie.$key)">delete</a>
+    </li>
+  </ul>
+</div>
